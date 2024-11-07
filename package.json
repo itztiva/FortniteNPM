@@ -1,0 +1,28 @@
+{
+  "name": "fortnitenpm",
+  "version": "0.1.0",
+  "description": "A Library to communicate with Epic Games / Fortnite HTTP Service",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itztiva/FortniteNPM.git"
+  },
+  "keywords": [
+    "fortnite"
+  ],
+  "author": "itztiva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/itztiva/FortniteNPM/issues"
+  },
+  "homepage": "https://github.com/itztiva/FortniteNPM#readme",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
