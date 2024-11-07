@@ -1,13 +1,26 @@
-import Fortnite from "../src";
+import { Fortnite } from "../src";
 
 export const fortnite = new Fortnite();
 
-(async () => {
-    const code = 'ce2d8a247288425098508cde7ae9220e';
+const args = process.argv;
 
+const arg = args.find(arg => arg.startsWith('-c='));
+
+if (!arg) { 
+    console.error('Please provide a code, e.g. -c=code');
+    process.exit(1);
+}
+
+const code = arg.split('=')[1]; 
+
+// const code = '1234';
+
+(async () => {
     try {
-        const authData = await fortnite.login(code);
-        console.log('logged in:', authData);
+        const data = await fortnite.login(code);
+        console.log('logged in:', data);
+        const shop = await fortnite.catalog();
+        await Bun.write('shop.json', JSON.stringify(shop, null, 2));
     } catch (error) {
         console.error('Login failed:', error);
     }

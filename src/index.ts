@@ -2,10 +2,11 @@ import querystring from "querystring";
 import { Endpoints } from "./HTTP/Endpoints";
 import { fetchHandled } from "./Utilities/fetchHandled";
 
-class Fortnite {
+export class Fortnite {
     private static readonly Basic_Header = "Basic M2Y2OWU1NmM3NjQ5NDkyYzhjYzI5ZjFhZjA4YThhMTI6YjUxZWU5Y2IxMjIzNGY1MGE2OWVmYTY3ZWY1MzgxMmU=";
+    public static Bearer = "";
 
-    constructor() {}
+    constructor() { }
 
     public async login(authcode: string): Promise<any> {
         try {
@@ -52,11 +53,28 @@ class Fortnite {
                 body: tData,
             });
 
+            Fortnite.Bearer = `bearer ${aTokenRes.access_token}`;
+
             return aTokenRes;
         } catch (error: any) {
             throw new Error(`Error in login: ${error.message}`);
         }
     }
-}
 
-export default Fortnite;
+    public async catalog(): Promise<any> {
+        try {
+            const res = await fetchHandled(Endpoints.BR_STORE, {
+                method: "GET",
+                headers: {
+                    Authorization: Fortnite.Bearer,
+                    "Content-Type": "application/json",
+                },
+            });
+
+            return res;
+        } catch (error: any) {
+            throw new Error(`Error fetching today's Catalog: ${error.message}`);
+        }
+    }
+
+}
