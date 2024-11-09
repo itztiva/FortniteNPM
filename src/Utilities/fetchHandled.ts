@@ -4,6 +4,7 @@ export async function fetchHandled(url: string, options: RequestInit): Promise<a
 
         if (!response.ok) {
             if (response.status === 400) {
+                console.log(await response.json());
                 throw new Error('Bad Request');
             }
             throw new Error(`Fetch Failed: ${response.statusText}`);
