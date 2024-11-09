@@ -51,7 +51,12 @@ export class Fortnite {
 
             Fortnite.Bearer = `bearer ${aTokenRes.access_token}`;
 
-            return aTokenRes;
+
+            return {
+                username: aTokenRes.displayName,
+                accountId: dAuthRes.accountId,
+                bearer: `bearer ${aTokenRes.access_token}`
+            };
         } catch (error: any) {
             throw new Error(`Error in login: ${error.message}`);
         }

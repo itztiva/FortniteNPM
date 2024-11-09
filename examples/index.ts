@@ -2,7 +2,7 @@ import { Fortnite } from "../src";
 
 export const fortnite = new Fortnite();
 
-const code = 'authorizationcode'; // get from <https://www.epicgames.com/id/api/redirect?clientId=3f69e56c7649492c8cc29f1af08a8a12&responseType=code>
+const code = '49a91af8b2ec48aa81d5bbbe8236551d'; // get from <https://www.epicgames.com/id/api/redirect?clientId=3f69e56c7649492c8cc29f1af08a8a12&responseType=code>
 
 (async () => {
     try {
