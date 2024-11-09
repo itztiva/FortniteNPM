@@ -1,6 +1,6 @@
 {
   "name": "fortnitenpm",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Library to communicate with Epic Games / Fortnite HTTP Service",
   "main": "src/index.ts",
   "scripts": {
