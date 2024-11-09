@@ -7,7 +7,9 @@ export class Fortnite {
     public static Bearer = "";
     public static accountId = "";
 
-    constructor() { }
+    constructor(bearer?: string) {
+        Fortnite.Bearer = bearer || Fortnite.Bearer;
+     }
 
     public async login(authcode: string): Promise<any> {
         try {
@@ -50,7 +52,6 @@ export class Fortnite {
             });
 
             Fortnite.Bearer = `bearer ${aTokenRes.access_token}`;
-
 
             return {
                 username: aTokenRes.displayName,
